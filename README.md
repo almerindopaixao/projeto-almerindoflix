@@ -1,7 +1,7 @@
 # ALMERINDOFLIX
+[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/almerindopaixao/projeto-almerindoflix/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
 
 ![Logo](./src/assets/img/Logo.png)
-[![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/almerindopaixao/projeto-almerindoflix/LICENSE) [![npm version](https://img.shields.io/npm/v/react.svg?style=flat)](https://www.npmjs.com/package/react)
 
 ## `Aplicação teste`
 
