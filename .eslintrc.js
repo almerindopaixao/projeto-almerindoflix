@@ -27,7 +27,9 @@ module.exports = {
     'react-hooks'
   ],
   rules: {
-    'prettier/prettier': 'error',
+    'prettier/prettier': ['error', {
+      'endOfLine': 'auto',
+    }],
     'react/jsx-one-expression-per-line': 0,
     'react/jsx-filename-extension': 0,
     "react-hooks/rules-of-hooks": "error",
