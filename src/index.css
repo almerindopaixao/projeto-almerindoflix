@@ -23,3 +23,15 @@ body {
 a {
   color: inherit;
 }
+
+.main {
+  padding-top: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#root {
+  min-height: calc(100vh - var(--bodyPaddingTop));
+  display: flex;
+  flex-direction: column;
+}
