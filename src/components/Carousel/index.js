@@ -24,7 +24,7 @@ export default function Carousel({ ignoreFirstVideo, category }) {
           )}
         </>
       )}
-      <Slider>
+      <Slider categoryColor={categoryColor}>
         {videos.map((video, index) => {
           if (ignoreFirstVideo && index === 0) {
             return null;
@@ -55,9 +55,9 @@ Carousel.propTypes = {
     titulo: PropTypes.string.isRequired,
     cor: PropTypes.string.isRequired,
     link_extra: PropTypes.shape({
-      url: PropTypes.string.isRequired,
+      url: PropTypes.string,
       text: PropTypes.string.isRequired,
     }).isRequired,
-    videos: PropTypes.arrayOf(),
+    videos: PropTypes.arrayOf(PropTypes.object.isRequired),
   }).isRequired,
 };

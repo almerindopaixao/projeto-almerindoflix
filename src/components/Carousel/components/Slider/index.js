@@ -4,13 +4,13 @@ import PropType from 'prop-types';
 
 import { Container } from './styled';
 
-export default function Slider({ children }) {
+export default function Slider({ children, categoryColor }) {
   return (
-    <Container>
+    <Container categoryColor={categoryColor}>
       <SlickSlider
         {...{
           dots: false,
-          infinite: false,
+          infinite: true,
           speed: 300,
           centerMode: false,
           variableWidth: true,
@@ -25,4 +25,5 @@ export default function Slider({ children }) {
 
 Slider.propTypes = {
   children: PropType.node.isRequired,
+  categoryColor: PropType.string.isRequired,
 };

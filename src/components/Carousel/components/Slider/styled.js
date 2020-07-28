@@ -14,6 +14,7 @@ const Container = styled.ul`
     transform: initial;
     &:before {
       font-size: 30px;
+      color: ${({ categoryColor }) => categoryColor};
     }
   }
 
