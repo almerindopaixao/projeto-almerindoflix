@@ -61,7 +61,7 @@ VideoCardGroup.propTypes = {
       url: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
     }).isRequired,
-    videos: PropTypes.array.isRequired,
+    videos: PropTypes.arrayOf(),
   }).isRequired,
 };
 
