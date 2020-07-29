@@ -1,0 +1,14 @@
+.erro {
+  margin: 0 auto;
+}
+
+.erro h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.erro p {
+  text-align: center;
+  line-height: 2;
+}

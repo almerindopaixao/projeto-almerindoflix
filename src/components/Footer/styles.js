@@ -11,6 +11,8 @@ const FooterBase = styled.footer`
   text-align: center;
   @media (max-width: 800px) {
     margin-bottom: 50px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 `;
 
