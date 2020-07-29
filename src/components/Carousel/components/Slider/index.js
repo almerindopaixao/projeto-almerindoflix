@@ -2,7 +2,7 @@ import React from 'react';
 import SlickSlider from 'react-slick';
 import PropType from 'prop-types';
 
-import { Container } from './styled';
+import { Container } from './styles';
 
 export default function Slider({ children, categoryColor }) {
   return (

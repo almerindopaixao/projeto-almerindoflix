@@ -104,7 +104,9 @@ export const WatchButton = styled.button`
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
   cursor: pointer;
-  padding: 16px 24px;
+  padding: 16px 16px;
+  max-width: 100px;
+  text-align: center;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -119,6 +121,9 @@ export const WatchButton = styled.button`
   transition: opacity 0.3s;
   display: none;
   margin: 0 auto;
+  &:hover {
+    opacity: 0.5;
+  }
   @media (max-width: 800px) {
     display: block;
   }
