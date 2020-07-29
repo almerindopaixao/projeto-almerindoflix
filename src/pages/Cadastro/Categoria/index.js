@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import uuid from 'uuid/dist/v4';
 import { Link } from 'react-router-dom';
 
+import FormField from '../../../components/FormField';
+
 export default function CadastroCategoria() {
   const valoresIniciais = {
     nome: '',
     descricao: '',
-    cor: '',
+    cor: '#000000',
   };
 
   const [categorias, setCategorias] = useState([]);
@@ -37,40 +39,32 @@ export default function CadastroCategoria() {
       <h1>Cadastro de categoria: {valores.nome}</h1>
 
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nome">
-            Nome da Categoria:
-            <input
-              name="nome"
-              onChange={handleChange}
-              value={valores.nome}
-              type="text"
-            />
-          </label>
-        </div>
+        <FormField
+          name="nome"
+          type="text"
+          value={valores.nome}
+          onChange={handleChange}
+        >
+          Nome da Categoria:
+        </FormField>
 
-        <div>
-          <label htmlFor="descricao">
-            Descrição:
-            <textarea
-              name="descricao"
-              value={valores.descricao}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
+        <FormField
+          name="descricao"
+          type="textarea"
+          value={valores.descricao}
+          onChange={handleChange}
+        >
+          Descrição:
+        </FormField>
 
-        <div>
-          <label htmlFor="cor">
-            Cor:
-            <input
-              name="cor"
-              onChange={handleChange}
-              value={valores.cor}
-              type="color"
-            />
-          </label>
-        </div>
+        <FormField
+          name="cor"
+          type="color"
+          value={valores.cor}
+          onChange={handleChange}
+        >
+          Cor:
+        </FormField>
 
         <button type="submit">Cadastrar</button>
       </form>
