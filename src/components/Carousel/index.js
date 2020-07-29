@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { VideoCardGroupContainer, Title, ExtraLink } from './styles';
-import { SliderItem } from './components/Slider/styled';
+import { SliderItem } from './components/Slider/styles';
 import VideoCard from './components/VideoCard';
 import Slider from './components/Slider';
 
