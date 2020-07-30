@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import uuid from 'uuid/dist/v4';
 import { Link } from 'react-router-dom';
-
+import Axios from 'axios';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 
@@ -34,6 +34,17 @@ export default function CadastroCategoria() {
 
     setValores(valoresIniciais);
   }
+
+  async function getData() {
+    const URL = 'http://localhost:8080/categorias';
+
+    const response = (await Axios(URL)).data;
+    setCategorias([...response]);
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="main">
@@ -69,6 +80,13 @@ export default function CadastroCategoria() {
 
         <Button>Cadastrar</Button>
       </form>
+
+      {categorias.lenght === 0 && (
+        <div>
+          {/* Carregando... */}
+          Loading..
+        </div>
+      )}
 
       <ul>
         {categorias.map((categoria) => {
