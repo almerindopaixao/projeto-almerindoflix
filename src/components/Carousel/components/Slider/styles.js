@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Container = styled.ul`
   padding: 0;
   margin: 0;
-  
+
   .slick-prev,
   .slick-next {
     z-index: 50;
@@ -19,9 +19,8 @@ const Container = styled.ul`
       color: ${({ categoryColor }) => categoryColor};
     }
     &:hover {
-      transform: scale(1.2)
+      transform: scale(1.2);
     }
-
   }
   .slick-prev {
     left: 0;
@@ -29,7 +28,7 @@ const Container = styled.ul`
 
   .slick-next {
     right: 16px;
- }
+  }
 `;
 
 const SliderItem = styled.li`

@@ -5,8 +5,10 @@ import PropType from 'prop-types';
 import { Container } from './styles';
 
 export default function Slider({ children, categoryColor }) {
+  const BoardColor = categoryColor;
+  
   return (
-    <Container categoryColor={categoryColor}>
+    <Container categoryColor={BoardColor}>
       <SlickSlider
         {...{
           dots: false,
