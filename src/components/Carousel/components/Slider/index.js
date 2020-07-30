@@ -6,7 +6,7 @@ import { Container } from './styles';
 
 export default function Slider({ children, categoryColor }) {
   const BoardColor = categoryColor;
-  
+
   return (
     <Container categoryColor={BoardColor}>
       <SlickSlider

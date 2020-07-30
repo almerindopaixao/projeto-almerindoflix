@@ -3,6 +3,7 @@ import uuid from 'uuid/dist/v4';
 import { Link } from 'react-router-dom';
 
 import FormField from '../../../components/FormField';
+import Button from '../../../components/Button';
 
 export default function CadastroCategoria() {
   const valoresIniciais = {
@@ -66,7 +67,7 @@ export default function CadastroCategoria() {
           Cor:
         </FormField>
 
-        <button type="submit">Cadastrar</button>
+        <Button>Cadastrar</Button>
       </form>
 
       <ul>

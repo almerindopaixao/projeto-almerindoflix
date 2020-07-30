@@ -3,12 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'prettier',
-    'prettier/react',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -21,18 +16,17 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    'prettier',
-    'react-hooks'
-  ],
+  plugins: ['react', 'prettier', 'react-hooks'],
   rules: {
-    'prettier/prettier': ['error', {
-      'endOfLine': 'auto',
-    }],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'react/jsx-one-expression-per-line': 0,
     'react/jsx-filename-extension': 0,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 };
