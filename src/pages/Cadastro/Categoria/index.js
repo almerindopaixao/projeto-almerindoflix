@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import uuid from 'uuid/dist/v4';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
 export default function CadastroCategoria() {
   const valoresIniciais = {
@@ -12,27 +12,15 @@ export default function CadastroCategoria() {
     cor: '#000000',
   };
 
+  const { valores, handleChange, clearForm } = useForm(valoresIniciais);
+
   const [categorias, setCategorias] = useState([]);
-  const [valores, setValores] = useState(valoresIniciais);
-
-  function setValor(chave, valor) {
-    setValores({
-      ...valores,
-      [chave]: valor,
-    });
-  }
-
-  function handleChange(e) {
-    const chave = e.target.getAttribute('name');
-    const valor = e.target.value;
-    setValor(chave, valor);
-  }
 
   function handleSubmit(e) {
     e.preventDefault();
     setCategorias([...categorias, valores]);
 
-    setValores(valoresIniciais);
+    clearForm(valoresIniciais);
   }
 
   async function getData() {
@@ -59,7 +47,7 @@ export default function CadastroCategoria() {
           value={valores.nome}
           onChange={handleChange}
         >
-          Nome da Categoria:
+          Título da Categoria:
         </FormField>
 
         <FormField
@@ -92,7 +80,7 @@ export default function CadastroCategoria() {
 
       <ul>
         {categorias.map((categoria) => {
-          return <li key={uuid()}>{categoria.nome}</li>;
+          return <li key={categoria.id}>{categoria.titulo}</li>;
         })}
       </ul>
       <Link to="/">Ir para home</Link>
