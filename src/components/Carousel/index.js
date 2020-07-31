@@ -47,6 +47,9 @@ export default function Carousel({ ignoreFirstVideo, category }) {
 
 Carousel.defaultProps = {
   ignoreFirstVideo: false,
+  category: {
+    link_extra: {},
+  },
 };
 
 Carousel.propTypes = {
@@ -57,7 +60,7 @@ Carousel.propTypes = {
     link_extra: PropTypes.shape({
       url: PropTypes.string,
       text: PropTypes.string.isRequired,
-    }).isRequired,
+    }),
     videos: PropTypes.arrayOf(PropTypes.object.isRequired),
-  }).isRequired,
+  }),
 };
