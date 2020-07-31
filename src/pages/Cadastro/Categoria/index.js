@@ -36,7 +36,9 @@ export default function CadastroCategoria() {
   }
 
   async function getData() {
-    const URL = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categorias' : 'https://almerindoflix.herokuapp.com//categorias';
+    const URL = window.location.hostname.includes('localhost')
+      ? 'http://localhost:8080/categorias'
+      : 'https://almerindoflix.herokuapp.com/scategorias';
 
     const response = (await Axios(URL)).data;
     setCategorias([...response]);
