@@ -1,9 +1,4 @@
-import styled from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+import 'react-toastify/dist/ReactToastify.css';
 
-const GlobalStyled = styled.main`
-  background-color: var(--black);
-  color: var(--white);
-  flex: 1;
-`;
-
-export default GlobalStyled;
+export default createGlobalStyle``;

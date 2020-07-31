@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import dadosIniciais from '../../data/dados_iniciais.json';
+import { toast } from 'react-toastify';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import getAllWithVideos from '../../repositories/categorias';
@@ -13,7 +14,7 @@ export default function Home() {
       .then((categoriasComVideos) => setDados(categoriasComVideos))
       .catch((err) => {
         // eslint-disable-next-line no-console
-        console.log(err.message);
+        toast.error(err.message);
       });
   }, []);
 
