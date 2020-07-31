@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Axios from 'axios';
+import axios from '../../../services/axios';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
@@ -24,11 +24,7 @@ export default function CadastroCategoria() {
   }
 
   async function getData() {
-    const URL = window.location.hostname.includes('localhost')
-      ? 'http://localhost:8080/categorias'
-      : 'https://almerindoflix.herokuapp.com/scategorias';
-
-    const response = (await Axios(URL)).data;
+    const response = (await axios('/categorias')).data;
     setCategorias([...response]);
   }
 
