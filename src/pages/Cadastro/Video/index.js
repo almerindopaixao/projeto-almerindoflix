@@ -1,16 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
 import Button from '../../../components/Button';
+import create from '../../../repositories/videos';
 
 export default function CadastroVideo() {
-  const { handleChange, valores } = useForm({});
+  const history = useHistory();
+  const { handleChange, valores } = useForm({
+    titulo: 'Video Padrão',
+    url: 'https://www.youtube.com/watch?v=hhQ3RtvmfEg&t=2994s',
+    categoria: 'Imersão React',
+  });
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    toast.success('video cadastrado com sucesso');
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    create({
+      titulo: valores.titulo,
+      url: valores.url,
+      categoriaId: 1,
+    })
+      .then(() => {
+        history.push('/');
+        toast.success('Video cadastrado com sucesso');
+      })
+      .catch((e) => {
+        toast.error('Desculpe mas não foi possivél cadastrar o vídeo');
+        toast.error(e);
+      });
   }
 
   return (
@@ -25,6 +44,23 @@ export default function CadastroVideo() {
           onChange={handleChange}
         >
           Título do Vídeo:
+        </FormField>
+
+        <FormField
+          name="url"
+          type="text"
+          value={valores.url}
+          onChange={handleChange}
+        >
+          Url:
+        </FormField>
+        <FormField
+          name="categoria"
+          type="text"
+          value={valores.categoria}
+          onChange={handleChange}
+        >
+          Categoria:
         </FormField>
         <Button>Cadastrar</Button>
       </form>

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 
-import Route from './routes/Route';
+import Routes from './routes/Routes';
 import Menu from './components/Menu';
 import Footer from './components/Footer';
 import Main from './styles/Main';
@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Menu />
       <Main>
-        <Route />
+        <Routes />
       </Main>
       <Footer />
       <GlobalStyled />

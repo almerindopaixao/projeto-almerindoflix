@@ -20,7 +20,9 @@ export default function Home() {
 
   return (
     <div className="container">
-      {dados.lengh === 0 && <div>Loading...</div>}
+      {dados.length === 0 && (
+        <div style={{ background: 'black' }}>Loading...</div>
+      )}
       {dados.map((categoria, indice) => {
         if (indice === 0) {
           return (
