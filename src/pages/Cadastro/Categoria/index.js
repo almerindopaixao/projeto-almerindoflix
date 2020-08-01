@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import axios from '../../../services/axios';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import Tabela from '../../../components/Tabela';
-import { Conteudo } from '../../../components/Tabela/styled';
+import { getAll, postAll } from '../../../repositories/categorias';
 import './categoria.css';
 
 export default function CadastroCategoria() {
@@ -39,24 +38,28 @@ export default function CadastroCategoria() {
       return;
     }
 
-    try {
-      setCategorias([...categorias, valores]);
-      toast.success('Categoria cadastrada com sucesso');
-    } catch (err) {
-      toast.error(
-        `Não foi possível cadastrar a categoria, ERROR:${err.message}`
-      );
-    }
-    clearForm(valoresIniciais);
-  }
-
-  async function getData() {
-    const response = (await axios('/categorias')).data;
-    setCategorias([...response]);
+    postAll({
+      titulo: valores.titulo,
+      descricao: valores.descricao,
+      cor: valores.cor,
+    })
+      .then(() => {
+        setCategorias([...categorias, valores]);
+        toast.success('Categoria cadastrada com sucesso');
+        clearForm(valoresIniciais);
+      })
+      .catch((erro) => {
+        toast.error('Desculpe mas não foi possivél cadastrar a categoria');
+        toast.error(erro.message);
+      });
   }
 
   useEffect(() => {
-    getData();
+    getAll()
+      .then((categoriasFromServer) => {
+        setCategorias(categoriasFromServer);
+      })
+      .catch((e) => toast.error(e.message));
   }, []);
 
   return (
@@ -104,22 +107,8 @@ export default function CadastroCategoria() {
         </div>
       </form>
 
-      <Tabela>
-        {categorias.map((categoria) => {
-          return (
-            <>
-              <Conteudo>{categoria.titulo}</Conteudo>
-              <Conteudo>{categoria.descricao}</Conteudo>
-              <Conteudo>
-                <p>Editar</p>
-              </Conteudo>
-              <Conteudo>
-                <p>Remover</p>
-              </Conteudo>
-            </>
-          );
-        })}
-      </Tabela>
+      <Tabela categorias={categorias} />
+
       {categorias.lenght === 0 && (
         <div>
           {/* Carregando... */}

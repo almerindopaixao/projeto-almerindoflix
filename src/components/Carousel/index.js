@@ -8,6 +8,7 @@ import Slider from './components/Slider';
 export default function Carousel({ ignoreFirstVideo, category }) {
   const categoryTitle = category.titulo;
   const categoryColor = category.cor;
+  const categoryDescribe = category.descricao;
   const categoryExtraLink = category.link_extra;
   const { videos } = category;
   return (
@@ -19,7 +20,7 @@ export default function Carousel({ ignoreFirstVideo, category }) {
           </Title>
           {categoryExtraLink && (
             <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text}
+              {categoryExtraLink.text || categoryDescribe}
             </ExtraLink>
           )}
         </>
@@ -60,6 +61,7 @@ Carousel.propTypes = {
   category: PropTypes.shape({
     titulo: PropTypes.string.isRequired,
     cor: PropTypes.string.isRequired,
+    descricao: PropTypes.string.isRequired,
     link_extra: PropTypes.shape({
       url: PropTypes.string,
       text: PropTypes.string,

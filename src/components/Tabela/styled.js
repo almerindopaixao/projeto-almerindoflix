@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
-const Table = styled.div`
+const Container = styled.div`
   display: grid;
-  grid-template-columns: 2fr 6fr 1fr 1fr;
+  grid-template-columns: 20% 50% 15% 15%;
+  align-items: center;
+`;
+
+const Table = styled.div`
   border: 1px solid var(--primary);
   width: 100%;
-  align-items: center;
   margin-bottom: 40px;
 
   @media (max-width: 800px) {
@@ -24,8 +27,15 @@ const Titulo = styled.div`
 `;
 
 const Conteudo = styled.div`
-  padding: 10px 0 10px 10px;
+  padding-left: 10px;
   color: var(--blackLighter);
 `;
 
-export { Table, Titulo, Conteudo };
+Conteudo.Paragrafo = styled.p`
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export { Table, Titulo, Conteudo, Container };

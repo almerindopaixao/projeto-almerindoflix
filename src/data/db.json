@@ -49,6 +49,12 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "titulo": "Musica",
+      "descricao": "Categoria que fala sobre musica",
+      "cor": "#9900ff",
+      "id": 6
     }
   ],
   "videos": [
@@ -201,6 +207,12 @@
       "url": "https://www.youtube.com/watch?v=hhQ3RtvmfEg&t=2994s",
       "categoriaId": 1,
       "id": 25
+    },
+    {
+      "titulo": "live show - Tárcisio acordeon",
+      "url": "https://www.youtube.com/watch?v=_MZQaeUwqi0",
+      "categoriaId": 6,
+      "id": 26
     }
   ]
 }
