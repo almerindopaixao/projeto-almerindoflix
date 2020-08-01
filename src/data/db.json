@@ -55,6 +55,12 @@
       "descricao": "Categoria que fala sobre musica",
       "cor": "#9900ff",
       "id": 6
+    },
+    {
+      "titulo": "Comédia",
+      "descricao": "categoria sobre comédia\n",
+      "cor": "#000000",
+      "id": 7
     }
   ],
   "videos": [

@@ -18,11 +18,12 @@ export default function Carousel({ ignoreFirstVideo, category }) {
           <Title style={{ backgroundColor: categoryColor || 'red' }}>
             {categoryTitle}
           </Title>
-          {categoryExtraLink && (
-            <ExtraLink href={categoryExtraLink.url} target="_blank">
-              {categoryExtraLink.text || categoryDescribe}
-            </ExtraLink>
-          )}
+          <ExtraLink
+            href={categoryExtraLink ? categoryExtraLink.url : '#'}
+            target="_blank"
+          >
+            {categoryExtraLink ? categoryExtraLink.text : categoryDescribe}
+          </ExtraLink>
         </>
       )}
       <Slider categoryColor={categoryColor}>

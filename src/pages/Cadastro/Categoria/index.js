@@ -108,13 +108,6 @@ export default function CadastroCategoria() {
       </form>
 
       <Tabela categorias={categorias} />
-
-      {categorias.lenght === 0 && (
-        <div>
-          {/* Carregando... */}
-          Loading..
-        </div>
-      )}
       <div className="ir-home">
         <Link to="/">Ir para home</Link>
       </div>

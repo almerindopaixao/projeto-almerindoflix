@@ -12,6 +12,12 @@ export default function Tabela({ categorias }) {
         <Titulo>Editar</Titulo>
         <Titulo className="ultimo">Remover</Titulo>
       </Container>
+      {categorias.lenght === 0 && (
+        <div>
+          {/* Carregando... */}
+          Loading..
+        </div>
+      )}
       {categorias.map((categoria) => {
         return (
           <Container key={uuid()}>
