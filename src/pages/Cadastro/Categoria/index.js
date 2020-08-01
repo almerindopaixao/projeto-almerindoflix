@@ -4,6 +4,9 @@ import axios from '../../../services/axios';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import Tabela from '../../../components/Tabela';
+import { Conteudo } from '../../../components/Tabela/styled';
+import './categoria.css';
 
 export default function CadastroCategoria() {
   const valoresIniciais = {
@@ -12,7 +15,9 @@ export default function CadastroCategoria() {
     cor: '#000000',
   };
 
-  const { valores, handleChange, clearForm } = useForm(valoresIniciais);
+  const { valores, handleChange, handleClick, clearForm } = useForm(
+    valoresIniciais
+  );
 
   const [categorias, setCategorias] = useState([]);
 
@@ -34,11 +39,11 @@ export default function CadastroCategoria() {
 
   return (
     <div className="main">
-      <h1>Cadastro de categoria: {valores.titulo}</h1>
+      <h1 className="titulo">Cadastro de categoria: {valores.titulo}</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="formulario" onSubmit={handleSubmit}>
         <FormField
-          name="nome"
+          name="titulo"
           type="text"
           value={valores.titulo}
           onChange={handleChange}
@@ -64,7 +69,17 @@ export default function CadastroCategoria() {
           Cor:
         </FormField>
 
-        <Button>Cadastrar</Button>
+        <div className="botoes">
+          <Button background="#DB202C">Enviar</Button>
+          <Button
+            background="#9E9E9E"
+            onClick={handleClick}
+            type="reset"
+            color="black"
+          >
+            Limpar
+          </Button>
+        </div>
       </form>
 
       {categorias.lenght === 0 && (
@@ -74,12 +89,25 @@ export default function CadastroCategoria() {
         </div>
       )}
 
-      <ul>
+      <Tabela>
         {categorias.map((categoria) => {
-          return <li key={categoria.id}>{categoria.titulo}</li>;
+          return (
+            <>
+              <Conteudo>{categoria.titulo}</Conteudo>
+              <Conteudo>{categoria.descricao}</Conteudo>
+              <Conteudo>
+                <p>Editar</p>
+              </Conteudo>
+              <Conteudo>
+                <p>Remover</p>
+              </Conteudo>
+            </>
+          );
         })}
-      </ul>
-      <Link to="/">Ir para home</Link>
+      </Tabela>
+      <div className="ir-home">
+        <Link to="/">Ir para home</Link>
+      </div>
     </div>
   );
 }

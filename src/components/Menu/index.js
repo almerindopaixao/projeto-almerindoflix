@@ -12,7 +12,13 @@ export default function Menu() {
       <Link to="/">
         <img className="Logo" src={Logo} alt="AlmerindoFlix Logo" />
       </Link>
-      <Button as={Link} className="ButtonLink" to="/cadastro/video">
+      <Button
+        border="true"
+        background="black"
+        as={Link}
+        className="ButtonLink"
+        to="/cadastro/video"
+      >
         Novo Video
       </Button>
     </nav>

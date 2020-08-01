@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
-  color: var(--white);
-  border: 1px solid var(--white);
+  color: ${({ color }) => color || `white`};
+  border: ${({ border }) => (border ? `1px solid white` : `none`)};
   box-sizing: border-box;
-  background: black;
+  background: ${({ background }) => background};
   cursor: pointer;
   padding: 16px 24px;
   font-style: normal;
@@ -15,6 +15,7 @@ const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   transition: opacity 0.3s;
+  text-align: center;
 
   &:hover,
   &:focus {

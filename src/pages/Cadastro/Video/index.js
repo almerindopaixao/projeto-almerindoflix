@@ -6,16 +6,17 @@ import useForm from '../../../hooks/useForm';
 import Button from '../../../components/Button';
 import create from '../../../repositories/videos';
 import { getAll } from '../../../repositories/categorias';
+import './video.css';
 
 export default function CadastroVideo() {
   const history = useHistory();
   const [categorias, setCategorias] = useState([]);
   const categoryTitles = categorias.map(({ titulo }) => titulo);
 
-  const { handleChange, valores } = useForm({
-    titulo: 'Video Padrão',
-    url: 'https://www.youtube.com/watch?v=hhQ3RtvmfEg&t=2994s',
-    categoria: 'Front End',
+  const { handleChange, valores, handleClick } = useForm({
+    titulo: '',
+    url: '',
+    categoria: '',
   });
 
   function handleSubmit(event) {
@@ -54,9 +55,9 @@ export default function CadastroVideo() {
 
   return (
     <div className="main">
-      <h1>Cadastro de Vídeo</h1>
+      <h1 className="titulo">Cadastro de Vídeo</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form className="formulario" onSubmit={handleSubmit}>
         <FormField
           name="titulo"
           type="text"
@@ -83,10 +84,22 @@ export default function CadastroVideo() {
         >
           Categoria:
         </FormField>
-        <Button>Cadastrar</Button>
+        <div className="botoes">
+          <Button background="#DB202C">Enviar</Button>
+          <Button
+            onClick={handleClick}
+            background="#9E9E9E"
+            type="reset"
+            color="black"
+          >
+            Limpar
+          </Button>
+        </div>
       </form>
 
-      <Link to="/cadastro/categoria">Cadastrar Categoria</Link>
+      <div className="ir-home">
+        <Link to="/cadastro/categoria">Cadastrar Categoria</Link>
+      </div>
     </div>
   );
 }

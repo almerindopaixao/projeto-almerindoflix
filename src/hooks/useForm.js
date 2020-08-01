@@ -10,6 +10,10 @@ export default function useForm(valoresIniciais) {
     });
   }
 
+  function handleClick() {
+    setValores(valoresIniciais);
+  }
+
   function handleChange(e) {
     const chave = e.target.getAttribute('name');
     const valor = e.target.value;
@@ -24,5 +28,6 @@ export default function useForm(valoresIniciais) {
     valores,
     clearForm,
     handleChange,
+    handleClick,
   };
 }
