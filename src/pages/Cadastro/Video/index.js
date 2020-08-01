@@ -22,6 +22,21 @@ export default function CadastroVideo() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    let errors = [];
+    const chaves = Object.keys(valores);
+
+    errors = chaves.filter((chave) => {
+      return !valores[chave];
+    });
+
+    if (errors.length > 0) {
+      errors.forEach((error) => {
+        toast.error(`Campo ${error} precisa ser preenchido`);
+      });
+
+      return;
+    }
+
     try {
       const { id } = categorias.find((categoria) => {
         return categoria.titulo === valores.categoria;

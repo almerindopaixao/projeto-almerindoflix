@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axios from '../../../services/axios';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
@@ -23,8 +24,29 @@ export default function CadastroCategoria() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setCategorias([...categorias, valores]);
+    let errors = [];
+    const chaves = Object.keys(valores);
 
+    errors = chaves.filter((chave) => {
+      return !valores[chave];
+    });
+
+    if (errors.length > 0) {
+      errors.forEach((error) => {
+        toast.error(`Campo ${error} precisa ser preenchido`);
+      });
+
+      return;
+    }
+
+    try {
+      setCategorias([...categorias, valores]);
+      toast.success('Categoria cadastrada com sucesso');
+    } catch (err) {
+      toast.error(
+        `Não foi possível cadastrar a categoria, ERROR:${err.message}`
+      );
+    }
     clearForm(valoresIniciais);
   }
 
@@ -82,13 +104,6 @@ export default function CadastroCategoria() {
         </div>
       </form>
 
-      {categorias.lenght === 0 && (
-        <div>
-          {/* Carregando... */}
-          Loading..
-        </div>
-      )}
-
       <Tabela>
         {categorias.map((categoria) => {
           return (
@@ -105,6 +120,12 @@ export default function CadastroCategoria() {
           );
         })}
       </Tabela>
+      {categorias.lenght === 0 && (
+        <div>
+          {/* Carregando... */}
+          Loading..
+        </div>
+      )}
       <div className="ir-home">
         <Link to="/">Ir para home</Link>
       </div>

@@ -15,7 +15,7 @@ const Table = styled.div`
 
 const Titulo = styled.div`
   padding: 10px 10px 10px 10px;
-  font-size: 18px;
+  font-size: 20px;
   border-bottom: 1px solid var(--primary);
 
   &:not(.ultimo) {
@@ -25,6 +25,7 @@ const Titulo = styled.div`
 
 const Conteudo = styled.div`
   padding: 10px 0 10px 10px;
+  color: var(--blackLighter);
 `;
 
 export { Table, Titulo, Conteudo };

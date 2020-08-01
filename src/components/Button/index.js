@@ -17,9 +17,12 @@ const Button = styled.button`
   transition: opacity 0.3s;
   text-align: center;
 
-  &:hover,
-  &:focus {
+  &:hover {
     opacity: 0.5;
+  }
+
+  &:active {
+    opacity: 1;
   }
 `;
 
