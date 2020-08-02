@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './Page404.css';
 
@@ -10,6 +11,9 @@ export default function Page404() {
         Não conseguimos encontrar a página que vocês esta procurando, porfavor
         click na logo ser redirecionado para a home
       </p>
+      <div className="ir-home">
+        <Link to="/">Voltar para home</Link>
+      </div>
     </div>
   );
 }

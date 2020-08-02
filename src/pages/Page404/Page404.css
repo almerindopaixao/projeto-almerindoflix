@@ -12,3 +12,16 @@
   text-align: center;
   line-height: 2;
 }
+
+.ir-home {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 24px;
+  text-align: center;
+}
+
+@media(max-width: 800px) {
+  .ir-home {
+    font-size: 18px;
+  }
+}

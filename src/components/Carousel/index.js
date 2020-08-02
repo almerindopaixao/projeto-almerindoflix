@@ -22,7 +22,7 @@ export default function Carousel({ ignoreFirstVideo, category }) {
             href={categoryExtraLink ? categoryExtraLink.url : '#'}
             target="_blank"
           >
-            {categoryDescribe}
+            {categoryExtraLink ? categoryExtraLink.text : categoryDescribe}
           </ExtraLink>
         </>
       )}
