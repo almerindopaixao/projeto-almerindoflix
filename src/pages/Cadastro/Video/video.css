@@ -21,4 +21,11 @@
 
 .ir-home {
   margin-bottom: 40px;
+  font-size: 24px;
+}
+
+@media(max-width: 800px) {
+  .ir-home {
+    font-size: 18px;
+  }
 }
