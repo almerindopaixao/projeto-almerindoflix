@@ -13,7 +13,7 @@ export default function CadastroCategoria() {
   const valoresIniciais = {
     titulo: '',
     descricao: '',
-    cor: '#000000',
+    cor: '#DB202C',
   };
 
   const { valores, handleChange, handleClick, clearForm } = useForm(
@@ -138,19 +138,21 @@ export default function CadastroCategoria() {
           <Titulo>Editar</Titulo>
           <Titulo className="ultimo">Remover</Titulo>
         </Container>
-        {categorias.lenght === 0 && (
-          <div>
-            {/* Carregando... */}
-            Loading..
-          </div>
-        )}
+        {categorias.lenght === 0 && <div>Loading...</div>}
         {categorias.map((categoria) => {
           return (
             <Container key={uuid()}>
               <Conteudo>{categoria.titulo}</Conteudo>
               <Conteudo>{categoria.descricao}</Conteudo>
               <Conteudo>
-                <Conteudo.Paragrafo target={categoria.id}>
+                <Conteudo.Paragrafo
+                  as={Link}
+                  to={`/editar/categoria?id=${categoria.id}&titulo=${
+                    categoria.titulo
+                  }&descricao=${
+                    categoria.descricao
+                  }&cor=${categoria.cor.replace('#', '%23')}`}
+                >
                   Editar
                 </Conteudo.Paragrafo>
               </Conteudo>

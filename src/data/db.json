@@ -4,7 +4,7 @@
       "id": 1,
       "titulo": "Front End",
       "cor": "#6BD1FF",
-      "descricao": "Formação de Front End na Alura",
+      "descricao": "Formação de Front End  na Alura",
       "link_extra": {
         "text": "Formação de Front End na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
@@ -49,6 +49,12 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
+    },
+    {
+      "titulo": "Almerindo editou denovo agoea",
+      "descricao": "Editado",
+      "cor": "#DB202C",
+      "id": 6
     }
   ],
   "videos": [
