@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import getAllWithVideos from '../../repositories/categorias';
+import Spinner from '../../components/Spinner';
 import './Home.css';
 
 export default function Home() {
@@ -21,7 +22,9 @@ export default function Home() {
   return (
     <div className="container">
       {dados.length === 0 && (
-        <div style={{ background: 'black' }}>Loading...</div>
+        <div style={{ background: 'black' }}>
+          <Spinner>Loading...</Spinner>
+        </div>
       )}
       {dados.map((categoria, indice) => {
         if (indice === 0) {

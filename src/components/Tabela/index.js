@@ -1,41 +1,41 @@
-import React from 'react';
-import t from 'prop-types';
-import uuid from 'uuid/dist/v4';
-import { Table, Titulo, Container, Conteudo } from './styled';
+import styled from 'styled-components';
 
-export default function Tabela({ categorias }) {
-  return (
-    <Table>
-      <Container>
-        <Titulo>Titulo</Titulo>
-        <Titulo>Descrição</Titulo>
-        <Titulo>Editar</Titulo>
-        <Titulo className="ultimo">Remover</Titulo>
-      </Container>
-      {categorias.lenght === 0 && (
-        <div>
-          {/* Carregando... */}
-          Loading..
-        </div>
-      )}
-      {categorias.map((categoria) => {
-        return (
-          <Container key={uuid()}>
-            <Conteudo>{categoria.titulo}</Conteudo>
-            <Conteudo>{categoria.descricao}</Conteudo>
-            <Conteudo>
-              <Conteudo.Paragrafo>Editar</Conteudo.Paragrafo>
-            </Conteudo>
-            <Conteudo>
-              <Conteudo.Paragrafo>Remover</Conteudo.Paragrafo>
-            </Conteudo>
-          </Container>
-        );
-      })}
-    </Table>
-  );
-}
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: 20% 50% 15% 15%;
+  align-items: center;
+`;
 
-Tabela.propTypes = {
-  categorias: t.arrayOf(t.object).isRequired,
-};
+const Table = styled.div`
+  border: 1px solid var(--primary);
+  width: 100%;
+  margin-bottom: 40px;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+`;
+
+const Titulo = styled.div`
+  padding: 10px 10px 10px 10px;
+  font-size: 20px;
+  border-bottom: 1px solid var(--primary);
+
+  &:not(.ultimo) {
+    border-right: 1px solid var(--primary);
+  }
+`;
+
+const Conteudo = styled.div`
+  padding-left: 10px;
+  color: var(--blackLighter);
+`;
+
+Conteudo.Paragrafo = styled.p`
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export { Table, Titulo, Conteudo, Container };

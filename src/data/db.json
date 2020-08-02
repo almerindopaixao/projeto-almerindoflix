@@ -49,18 +49,6 @@
         "text": "Formação de Jogos na Alura",
         "url": "https://www.alura.com.br/cursos-online-front-end"
       }
-    },
-    {
-      "titulo": "Musica",
-      "descricao": "Categoria que fala sobre musica",
-      "cor": "#9900ff",
-      "id": 6
-    },
-    {
-      "titulo": "Comédia",
-      "descricao": "categoria sobre comédia\n",
-      "cor": "#000000",
-      "id": 7
     }
   ],
   "videos": [
@@ -207,18 +195,6 @@
       "categoriaId": 5,
       "titulo": "Resident Evil 8",
       "url": "https://www.youtube.com/watch?v=JSapXD9vxYA"
-    },
-    {
-      "titulo": "Video Padrão",
-      "url": "https://www.youtube.com/watch?v=hhQ3RtvmfEg&t=2994s",
-      "categoriaId": 1,
-      "id": 25
-    },
-    {
-      "titulo": "live show - Tárcisio acordeon",
-      "url": "https://www.youtube.com/watch?v=_MZQaeUwqi0",
-      "categoriaId": 6,
-      "id": 26
     }
   ]
 }

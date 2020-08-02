@@ -19,6 +19,11 @@ export default function CadastroVideo() {
     categoria: '',
   });
 
+  function isYoutubeVideo(url) {
+    const v = /^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    return url.match(v) ? RegExp.$1 : false;
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -33,7 +38,13 @@ export default function CadastroVideo() {
       errors.forEach((error) => {
         toast.error(`Campo ${error} precisa ser preenchido`);
       });
+      return;
+    }
 
+    const codVideo = isYoutubeVideo(valores.url);
+
+    if (!codVideo) {
+      toast.error(`Vídeo não encontrado, Por favor digite uma url válida`);
       return;
     }
 

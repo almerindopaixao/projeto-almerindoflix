@@ -15,14 +15,11 @@ export default async function getAllWithVideos() {
   }
 }
 
-export async function deleteOne(categorias) {
-  const config = {
-    data: categorias,
-  };
+export async function deleteOne(id) {
   try {
-    const respostaDoServior = await axios.delete(URL_CATEGORIES, config);
+    const respostaDoServior = await axios.delete(`${URL_CATEGORIES}/${id}`);
     if (respostaDoServior.statusText === 'OK') {
-      const resposta = respostaDoServior.statysText;
+      const resposta = respostaDoServior.data;
       return resposta;
     }
 

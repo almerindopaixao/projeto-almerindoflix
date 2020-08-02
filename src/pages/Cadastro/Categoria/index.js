@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import uuid from 'uuid/dist/v4';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
-import Tabela from '../../../components/Tabela';
-import { getAll, postAll } from '../../../repositories/categorias';
+import { getAll, postAll, deleteOne } from '../../../repositories/categorias';
 import './categoria.css';
+import { Table, Titulo, Container, Conteudo } from '../../../components/Tabela';
 
 export default function CadastroCategoria() {
   const valoresIniciais = {
@@ -20,6 +21,21 @@ export default function CadastroCategoria() {
   );
 
   const [categorias, setCategorias] = useState([]);
+
+  function handleRemove(e) {
+    const target = String(e.target.getAttribute('target'));
+
+    deleteOne(target)
+      .then(() => {
+        toast.success('Categoria deletada com sucesso');
+        getAll()
+          .then((categoriasFromServer) => {
+            setCategorias(categoriasFromServer);
+          })
+          .catch((err) => toast.error(err.message));
+      })
+      .catch(() => toast.error('Não foi possível deletar a categoria'));
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -44,7 +60,15 @@ export default function CadastroCategoria() {
       cor: valores.cor,
     })
       .then(() => {
-        setCategorias([...categorias, valores]);
+        setCategorias([
+          ...categorias,
+          {
+            id: categorias.length + 1,
+            titulo: valores.titulo,
+            descricao: valores.descricao,
+            cor: valores.cor,
+          },
+        ]);
         toast.success('Categoria cadastrada com sucesso');
         clearForm(valoresIniciais);
       })
@@ -107,7 +131,41 @@ export default function CadastroCategoria() {
         </div>
       </form>
 
-      <Tabela categorias={categorias} />
+      <Table>
+        <Container>
+          <Titulo>Titulo</Titulo>
+          <Titulo>Descrição</Titulo>
+          <Titulo>Editar</Titulo>
+          <Titulo className="ultimo">Remover</Titulo>
+        </Container>
+        {categorias.lenght === 0 && (
+          <div>
+            {/* Carregando... */}
+            Loading..
+          </div>
+        )}
+        {categorias.map((categoria) => {
+          return (
+            <Container key={uuid()}>
+              <Conteudo>{categoria.titulo}</Conteudo>
+              <Conteudo>{categoria.descricao}</Conteudo>
+              <Conteudo>
+                <Conteudo.Paragrafo target={categoria.id}>
+                  Editar
+                </Conteudo.Paragrafo>
+              </Conteudo>
+              <Conteudo>
+                <Conteudo.Paragrafo
+                  target={categoria.id}
+                  onClick={handleRemove}
+                >
+                  Remover
+                </Conteudo.Paragrafo>
+              </Conteudo>
+            </Container>
+          );
+        })}
+      </Table>
       <div className="ir-home">
         <Link to="/">Ir para home</Link>
       </div>
